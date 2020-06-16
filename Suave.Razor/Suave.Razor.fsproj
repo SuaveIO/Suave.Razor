@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>2.6.0</Version>
+    <PackageProjectUrl>https://suave.io/</PackageProjectUrl>
+    <PackageId>Suave.Razor-beta</PackageId>
+    <Description>This module provides support for Razor views to the Suave web server</Description>
+    <RepositoryUrl>https://github.com/SuaveIO/Suave.Razor</RepositoryUrl>
+    <PackageTags>razor web suave</PackageTags>
+    <Authors>Ademar Gonzalez</Authors>
+    <Company></Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Library.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Suave" Version="2.5.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Suave.RazorEngine\Suave.RazorEngine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>
