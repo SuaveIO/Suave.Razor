@@ -11,14 +11,13 @@
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
     <RootNamespace>RazorEngine</RootNamespace>
-    <PackageId></PackageId>
     <AssemblyName>Suave.RazorEngine</AssemblyName>
-    <PackageTags></PackageTags>
-    <Authors></Authors>
     <Version>2.2.2</Version>
     <Product>RazorEngine</Product>
     <IncludeSymbols>True</IncludeSymbols>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId />
+    <Authors />
   </PropertyGroup>
 
   <ItemGroup>
