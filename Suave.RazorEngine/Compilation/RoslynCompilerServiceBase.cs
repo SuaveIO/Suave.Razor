@@ -18,7 +18,7 @@ using System.Reflection;
 using System.Security;
 using System.Security.Permissions;
 using Microsoft.CodeAnalysis.Emit;
-
+using System.Diagnostics;
 
 namespace RazorEngine.Roslyn.CSharp
 {
@@ -239,7 +239,10 @@ namespace RazorEngine.Roslyn.CSharp
                     opts = opts.WithDebugInformationFormat(DebugInformationFormat.PortablePdb);
                 }
 
-                var result = compilation.Emit(assemblyStream, pdbStreamHelper, options: opts);
+                var result = Debugger.IsAttached 
+                    ? compilation.Emit(assemblyStream, pdbStreamHelper, options: opts)
+                    : compilation.Emit(assemblyStream);
+
                 if (!result.Success)
                 {
                     var errors =
