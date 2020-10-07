@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>2.6.0-beta3</Version>
+    <Version>2.6.0-beta4</Version>
     <PackageProjectUrl>https://suave.io/</PackageProjectUrl>
     <PackageId>Suave.Razor</PackageId>
     <Description>This module provides support for Razor views to the Suave web server</Description>
