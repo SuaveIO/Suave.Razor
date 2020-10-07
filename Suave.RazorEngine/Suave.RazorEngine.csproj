@@ -15,9 +15,12 @@
     <Version>2.2.2</Version>
     <Product>RazorEngine</Product>
     <IncludeSymbols>True</IncludeSymbols>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId />
-    <Authors />
+    <Authors>Ademar Gonzalez</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/SuaveIO/Suave.Razor</RepositoryUrl>
+    <PackageTags>razor web suave</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,6 +53,13 @@
     <!-- These are legacy components. -->
     <Compile Remove="Legacy\**\*.cs" />
     <Compile Remove="Templating\WrapperTemplateManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 
