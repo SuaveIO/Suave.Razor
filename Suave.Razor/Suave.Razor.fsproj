@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>2.6.0-beta1</Version>
+    <Version>2.6.0-beta3</Version>
     <PackageProjectUrl>https://suave.io/</PackageProjectUrl>
     <PackageId>Suave.Razor</PackageId>
     <Description>This module provides support for Razor views to the Suave web server</Description>
@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="4.7.0" />
+    <PackageReference Update="FSharp.Core" Version="4.7.2" />
   </ItemGroup>
 
   <ItemGroup>
