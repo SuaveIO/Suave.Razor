@@ -1,11 +1,13 @@
+@using System.Web.Helpers
 @{
     Layout = "layout.cshtml";
     ViewBag.Title = "Test";
+    var grid = new WebGrid(Model.data);
 }
 
 @section JavaScript
 {
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 }
 
-<div>Content</div>
+<div>Content: @Model.bar</div>

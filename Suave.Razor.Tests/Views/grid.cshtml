@@ -1,0 +1,26 @@
+@using NonFactors.Mvc.Grid;
+<html>
+<head>
+    <link href="/css/mvc-grid/mvc-grid.css" rel="stylesheet">
+</head>
+<body>
+    @(Html.Grid(Model).Build(columns =>
+    {
+    columns.Add(model => Html.CheckBox("Check_" + model.Id)).Titled(Html.CheckBox("CheckAll"));
+    columns.Add().RenderedAs((model, row) => row + 1).Titled("#").Css("text-center");
+
+    columns.Add(model => model.Name).Titled("Name");
+    columns.Add(model => model.Surname).Titled("Surname");
+    columns.Add(model => model.MaritalStatus).Titled("Marital status");
+
+    columns.Add(model => model.Age).Titled("Age");
+    columns.Add(model => model.Birthday).Titled("Birthday").Formatted("{0:d}");
+    columns.Add(model => model.IsWorking).Titled("Employed").RenderedAs(model => model.IsWorking == true ? "Employed" : "Unemployed");
+    })
+    )
+    <script src="/js/mvc-grid/mvc-grid.js"></script>
+    <script>
+        document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+</body>
+</html>
