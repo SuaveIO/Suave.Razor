@@ -8,6 +8,7 @@ open Suave
 open Suave.Files
 open RazorEngine.Compilation
 open System.Diagnostics
+open Suave.Utils.AsyncExtensions
 
 module Razor =
 
@@ -16,7 +17,7 @@ module Razor =
   // This is needed so the compiler does not strip away the reference.
   Debug.WriteLine("Hold on to {0}",dummy.ToString())
 
-  let private loadTemplate templatePath =
+  let private loadTemplate (templatePath:string) =
     async {
       let writeTime = File.GetLastWriteTime(templatePath)
       use file = new FileStream(templatePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
@@ -32,7 +33,7 @@ module Razor =
 
   let cachingProvider = new InvalidatingCachingProvider(fun t -> ())
   let internal writeTimeCache = new System.Collections.Concurrent.ConcurrentDictionary<string, DateTime>()
-  let isTemplateUpdated templatePath =
+  let isTemplateUpdated (templatePath: string) =
     let lastWriteTime = File.GetLastWriteTime templatePath
     let mutable wasUpdated = false
     writeTimeCache.AddOrUpdate(templatePath, lastWriteTime, fun key oldDate ->
@@ -44,7 +45,7 @@ module Razor =
   let resolveView r templatePath =
    resolvePath (r.runtime.homeDirectory @@ "Views") templatePath
    |> Path.GetFullPath
-
+  
   type ReferenceResolver() =
     member x.FindLoaded(refs: IEnumerable<string>, find:string) =
       refs.First(fun r -> r.EndsWith(Path.DirectorySeparatorChar.ToString() + find))
@@ -52,12 +53,8 @@ module Razor =
       member x.GetReferences(context:TypeContext, includeAssemblies : IEnumerable<CompilerReference>) : IEnumerable<CompilerReference> =
         seq{
           let loadedAss = (new UseCurrentAssembliesReferenceResolver()).GetReferences(context,includeAssemblies).Select(fun r -> r.GetFile()).ToArray()
-
           yield CompilerReference.From(x.FindLoaded(loadedAss,"Microsoft.AspNetCore.Razor.Runtime.dll"))
         }
-
-
-      
 
   /// razor WebPart
   ///
