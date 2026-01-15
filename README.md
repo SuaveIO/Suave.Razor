@@ -327,6 +327,6 @@ limitations under the License.
 ## Links
 
 - [Suave Web Server](https://suave.io/)
-- [Razor Documentation](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor)
+- [Razor Documentation](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor)
 - [GitHub Repository](https://github.com/SuaveIO/Suave.Razor)
 - [NuGet Package](https://www.nuget.org/packages/Suave.Razor/)
